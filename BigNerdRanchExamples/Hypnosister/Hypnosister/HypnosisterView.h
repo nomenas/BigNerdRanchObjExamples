@@ -10,6 +10,6 @@
 
 @interface HypnosisterView : UIView
 
-@property (nonatomic) CGRect frameRect;
+@property (nonatomic, strong) UIColor* circleColor;
 
 @end

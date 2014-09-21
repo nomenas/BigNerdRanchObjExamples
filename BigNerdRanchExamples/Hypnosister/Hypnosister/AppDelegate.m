@@ -7,17 +7,16 @@
 //
 
 #import "AppDelegate.h"
-#import "HypnosisterView.h"
+#import "HypnosisterViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    HypnosisterView* view = [[HypnosisterView alloc] initWithFrame: self.window.bounds];
-    view.backgroundColor = [UIColor clearColor];
-    [self.window addSubview: view];
+    HypnosisterViewController* controller = [[HypnosisterViewController alloc] init];
+    [self.window setRootViewController: controller];
+    [self.window addSubview: controller.view];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

@@ -21,6 +21,7 @@
 		AAB3A99D19C8DD74002A6650 /* HypnosisterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A99C19C8DD74002A6650 /* HypnosisterTests.m */; };
 		AAB3A9A819C8E9E9002A6650 /* HypnosisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB3A9A719C8E9E9002A6650 /* HypnosisterView.m */; };
 		AAB3A9AA19CA3A55002A6650 /* Earth_Western_Hemisphere_transparent_background.png in Resources */ = {isa = PBXBuildFile; fileRef = AAB3A9A919CA3A55002A6650 /* Earth_Western_Hemisphere_transparent_background.png */; };
+		AABB9B2319CF708B005BDD55 /* HypnosisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB9B2219CF708B005BDD55 /* HypnosisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		AAB3A9A619C8E9E9002A6650 /* HypnosisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HypnosisterView.h; sourceTree = "<group>"; };
 		AAB3A9A719C8E9E9002A6650 /* HypnosisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnosisterView.m; sourceTree = "<group>"; };
 		AAB3A9A919CA3A55002A6650 /* Earth_Western_Hemisphere_transparent_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Earth_Western_Hemisphere_transparent_background.png; path = ../../../../../Downloads/Earth_Western_Hemisphere_transparent_background.png; sourceTree = "<group>"; };
+		AABB9B2119CF708B005BDD55 /* HypnosisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HypnosisterViewController.h; sourceTree = "<group>"; };
+		AABB9B2219CF708B005BDD55 /* HypnosisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HypnosisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 		AAB3A97D19C8DD74002A6650 /* Hypnosister */ = {
 			isa = PBXGroup;
 			children = (
+				AABB9B2119CF708B005BDD55 /* HypnosisterViewController.h */,
+				AABB9B2219CF708B005BDD55 /* HypnosisterViewController.m */,
 				AAB3A98619C8DD74002A6650 /* AppDelegate.h */,
 				AAB3A9A619C8E9E9002A6650 /* HypnosisterView.h */,
 				AAB3A9A719C8E9E9002A6650 /* HypnosisterView.m */,
@@ -249,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAB3A98819C8DD74002A6650 /* AppDelegate.m in Sources */,
+				AABB9B2319CF708B005BDD55 /* HypnosisterViewController.m in Sources */,
 				AAB3A9A819C8E9E9002A6650 /* HypnosisterView.m in Sources */,
 				AAB3A98419C8DD74002A6650 /* main.m in Sources */,
 			);
@@ -447,6 +453,7 @@
 				AAB3A9A219C8DD74002A6650 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AAB3A9A319C8DD74002A6650 /* Build configuration list for PBXNativeTarget "HypnosisterTests" */ = {
 			isa = XCConfigurationList;
@@ -455,6 +462,7 @@
 				AAB3A9A519C8DD74002A6650 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

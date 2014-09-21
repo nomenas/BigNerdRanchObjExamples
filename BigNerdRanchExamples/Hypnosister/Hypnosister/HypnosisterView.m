@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.circleColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -44,7 +44,7 @@
     }
     
     path.lineWidth = 10;
-    [[UIColor lightGrayColor] setStroke];
+    [self.circleColor setStroke];
     [path stroke];
     path1.lineWidth = 2;
     [[UIColor blackColor] setStroke];
@@ -55,5 +55,14 @@
     [image drawInRect: CGRectMake(center.x - imageSize.width / 2, center.y - imageSize.height / 2, imageSize.width, imageSize.height)];
 }
 
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    float red = ((float) (arc4random() % 100)) / 100.0;
+    float green = ((float) (arc4random() % 100)) / 100.0;
+    float blue = ((float) (arc4random() % 100)) / 100.0;
 
+    self.circleColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    [self setNeedsDisplay];
+}
 @end
