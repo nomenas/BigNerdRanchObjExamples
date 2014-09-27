@@ -7,7 +7,7 @@
 //
 
 #import "HypnosisterView.h"
-
+	
 @implementation HypnosisterView
 
 - (id)initWithFrame:(CGRect)frame
