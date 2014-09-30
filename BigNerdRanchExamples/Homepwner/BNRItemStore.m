@@ -11,7 +11,7 @@
 
 @interface BNRItemStore ()
 
-@property (nonatomic) NSMutableArray* privateItems;
+@property (nonatomic, strong) NSMutableArray* privateItems;
 
 @end
 
