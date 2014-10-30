@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA7527EC19D9F98C009EB693 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7527EB19D9F98C009EB693 /* BNRItemStore.m */; };
+		AA7527EE19DCAB63009EB693 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA7527ED19DCAB63009EB693 /* HeaderView.xib */; };
 		AA9215DC19D8AF8000708F3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9215DB19D8AF8000708F3C /* main.m */; };
 		AA9215DF19D8AF8000708F3C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9215DE19D8AF8000708F3C /* AppDelegate.m */; };
 		AA9215E219D8AF8000708F3C /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9215E119D8AF8000708F3C /* ItemsViewController.m */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		AA7527EA19D9F98C009EB693 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItemStore.h; path = ../BNRItemStore.h; sourceTree = "<group>"; };
 		AA7527EB19D9F98C009EB693 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItemStore.m; path = ../BNRItemStore.m; sourceTree = "<group>"; };
+		AA7527ED19DCAB63009EB693 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		AA9215D619D8AF8000708F3C /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9215DA19D8AF8000708F3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA9215DB19D8AF8000708F3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				AA9215DE19D8AF8000708F3C /* AppDelegate.m */,
 				AA9215E019D8AF8000708F3C /* ItemsViewController.h */,
 				AA9215E119D8AF8000708F3C /* ItemsViewController.m */,
+				AA7527ED19DCAB63009EB693 /* HeaderView.xib */,
 				AA9215E619D8AF8000708F3C /* Images.xcassets */,
 				AA9215D919D8AF8000708F3C /* Supporting Files */,
 			);
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA9215E719D8AF8000708F3C /* Images.xcassets in Resources */,
+				AA7527EE19DCAB63009EB693 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

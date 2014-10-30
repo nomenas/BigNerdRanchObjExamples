@@ -14,6 +14,9 @@
 @property (nonatomic, strong) NSMutableDictionary* itemDictionary;
 @property (nonatomic, strong) NSNumber* under50Key;
 @property (nonatomic, strong) NSNumber* over50Key;
+
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+
 @end
 
 @implementation ItemsViewController
@@ -62,6 +65,9 @@
            forCellReuseIdentifier:@"UITableViewCell"];
     
     [self refreshDictionary];
+    
+    UIView* header = self.headerView;
+    [self.tableView setTableHeaderView:header];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,12 +96,11 @@
     [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     
     NSArray* items = [self itemsWithKey:[NSNumber numberWithLong:indexPath.section]];
-    if (items) {
-        BNRItem *item = [items objectAtIndex: indexPath.row];
-        if (item) {
-            cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20];
-            cell.textLabel.text = [item description];
-        }
+    BNRItem *item = (items && indexPath.row < items.count) ? [items objectAtIndex: indexPath.row] : nil;
+    
+    if (item) {
+        cell.textLabel.font = [UIFont fontWithName:cell.textLabel.font.fontName size:20];
+        cell.textLabel.text = [item description];
     } else {
         cell.textLabel.text = @"No more items!";
     }
@@ -108,13 +113,67 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return ([[self itemsWithKey:_under50Key] count] > 0 && [[self itemsWithKey:_over50Key] count] > 0) ? 3 : 2;
+    return 3;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSInteger numOfSections = [self numberOfSectionsInTableView:tableView];
     return section == numOfSections - 1 ? @"" : (section == numOfSections - 2 ? @"over 50$" : @"under 50$");
+}
+
+- (UIView*) headerView {
+    if (!_headerView) {
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    
+    return _headerView;
+}
+
+- (IBAction)addNewItem:(id)sender
+{
+    BNRItem* item = [[BNRItemStore sharedStore] createItem];
+ 
+    int section = (item.valueInDollars > 50) ? 1 : 0;
+    NSMutableArray* array = [_itemDictionary objectForKey:[NSNumber numberWithInt:section]];
+    [array addObject:item];
+    
+    NSIndexPath* path = [NSIndexPath indexPathForRow:(array.count - 1) inSection:section];
+    [self.tableView insertRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (IBAction) toggleEditingMode:(id)sender
+{
+    if ([self.tableView isEditing]) {
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        [self.tableView setEditing:NO animated:YES];
+    } else {
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView
+    commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSMutableArray* array = [_itemDictionary objectForKey:[NSNumber numberWithLong:indexPath.section]];
+        BNRItem* item = array && indexPath.row < array.count ? [array objectAtIndex:indexPath.row] : nil;
+        
+        if (item) {
+            [[BNRItemStore sharedStore] removeItem:item];
+            [array removeObject:item];
+            
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+    }
+}
+
+- (void)tableView:(UITableView *)tableView
+        moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+        toIndexPath:(NSIndexPath *)destinationIndexPath
+{
 }
 
 @end

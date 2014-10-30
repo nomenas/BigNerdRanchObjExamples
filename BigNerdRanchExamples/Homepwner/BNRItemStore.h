@@ -18,5 +18,6 @@
 
 -(BNRItem*) createItem;
 -(BNRItem*) itemAt:(NSInteger) index;
+-(void) removeItem:(BNRItem*) item;
 
 @end

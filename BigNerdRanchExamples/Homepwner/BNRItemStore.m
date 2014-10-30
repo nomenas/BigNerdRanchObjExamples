@@ -55,4 +55,8 @@
     return (index >= 0 && index < _privateItems.count) ? [_privateItems objectAtIndex: index] : nil;
 }
 
+-(void) removeItem:(BNRItem*) item {
+    [_privateItems removeObject:item];
+}
+
 @end
