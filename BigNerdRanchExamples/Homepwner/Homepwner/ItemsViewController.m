@@ -9,6 +9,7 @@
 #import "ItemsViewController.H"
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "BNRDetailViewController.h"
 
 @interface ItemsViewController ()
 @property (nonatomic, strong) NSMutableDictionary* itemDictionary;
@@ -174,6 +175,22 @@
         moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         toIndexPath:(NSIndexPath *)destinationIndexPath
 {
+}
+
+- (void) tableView: (UITableView*)tableView didSelectRowAtIndexPath: (NSIndexPath*)indexPath
+{
+    NSMutableArray* array = [_itemDictionary objectForKey:[NSNumber numberWithLong:indexPath.section]];
+    BNRItem* item = array && indexPath.row < array.count ? [array objectAtIndex:indexPath.row] : nil;
+    
+    BNRDetailViewController* detailController = [[BNRDetailViewController alloc] initWithItem: item];
+    [self.navigationController pushViewController: detailController animated: YES];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshDictionary];
+    [self.tableView reloadData];
 }
 
 @end

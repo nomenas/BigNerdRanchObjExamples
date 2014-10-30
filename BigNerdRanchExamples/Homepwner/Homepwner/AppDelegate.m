@@ -19,11 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    ItemsViewController* controller = [[ItemsViewController alloc] init];
-    [self.window setRootViewController: controller];
-    [self.window addSubview: controller.view];
-    [self.window makeKeyAndVisible];
+    UINavigationController* navigationController = [[UINavigationController alloc] init];
+    ItemsViewController* itemController = [[ItemsViewController alloc] init];
+    [navigationController addChildViewController: itemController];
     
+    [self.window setRootViewController: navigationController];
+    [self.window addSubview: navigationController.view];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 
