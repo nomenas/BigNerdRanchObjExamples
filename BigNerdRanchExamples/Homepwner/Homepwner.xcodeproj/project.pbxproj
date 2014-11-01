@@ -17,6 +17,8 @@
 		AA9215E719D8AF8000708F3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9215E619D8AF8000708F3C /* Images.xcassets */; };
 		AA9215F619D8AF8000708F3C /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9215F519D8AF8000708F3C /* HomepwnerTests.m */; };
 		AA92160119D9F90000708F3C /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA92160019D9F90000708F3C /* BNRItem.m */; };
+		AAA3FE501A059CA80097D6D6 /* DatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3FE4E1A059CA80097D6D6 /* DatePickerController.m */; };
+		AAA3FE511A059CA80097D6D6 /* DatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA3FE4F1A059CA80097D6D6 /* DatePickerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,9 @@
 		AA9215F519D8AF8000708F3C /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
 		AA9215FF19D9F90000708F3C /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItem.h; path = ../BNRItem.h; sourceTree = "<group>"; };
 		AA92160019D9F90000708F3C /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItem.m; path = ../BNRItem.m; sourceTree = "<group>"; };
+		AAA3FE4D1A059CA80097D6D6 /* DatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerController.h; sourceTree = "<group>"; };
+		AAA3FE4E1A059CA80097D6D6 /* DatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerController.m; sourceTree = "<group>"; };
+		AAA3FE4F1A059CA80097D6D6 /* DatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,9 @@
 			children = (
 				AA85B4991A02F3200037C2CD /* BNRDetailViewController.h */,
 				AA85B49A1A02F3200037C2CD /* BNRDetailViewController.m */,
+				AAA3FE4D1A059CA80097D6D6 /* DatePickerController.h */,
+				AAA3FE4E1A059CA80097D6D6 /* DatePickerController.m */,
+				AAA3FE4F1A059CA80097D6D6 /* DatePickerController.xib */,
 				AA85B49B1A02F3200037C2CD /* BNRDetailViewController.xib */,
 				AA7527EA19D9F98C009EB693 /* BNRItemStore.h */,
 				AA7527EB19D9F98C009EB693 /* BNRItemStore.m */,
@@ -215,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA85B49D1A02F3200037C2CD /* BNRDetailViewController.xib in Resources */,
+				AAA3FE511A059CA80097D6D6 /* DatePickerController.xib in Resources */,
 				AA9215E719D8AF8000708F3C /* Images.xcassets in Resources */,
 				AA7527EE19DCAB63009EB693 /* HeaderView.xib in Resources */,
 			);
@@ -235,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA85B49C1A02F3200037C2CD /* BNRDetailViewController.m in Sources */,
+				AAA3FE501A059CA80097D6D6 /* DatePickerController.m in Sources */,
 				AA7527EC19D9F98C009EB693 /* BNRItemStore.m in Sources */,
 				AA9215E219D8AF8000708F3C /* ItemsViewController.m in Sources */,
 				AA92160119D9F90000708F3C /* BNRItem.m in Sources */,

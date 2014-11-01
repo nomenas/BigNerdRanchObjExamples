@@ -11,6 +11,7 @@
 #import "BNRItem.h"
 #import "BNRDetailViewController.h"
 
+
 @interface ItemsViewController ()
 @property (nonatomic, strong) NSMutableDictionary* itemDictionary;
 @property (nonatomic, strong) NSNumber* under50Key;
@@ -49,6 +50,13 @@
             [[BNRItemStore sharedStore] createItem];
             _under50Key = [NSNumber numberWithInt: 0];
             _over50Key = [NSNumber numberWithInt: 1];
+            
+            UINavigationItem *navItem = self.navigationItem;
+            UIBarButtonItem* addItemNavButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd
+                    target:self action:@selector(addNewItem:)];
+            navItem.rightBarButtonItem = addItemNavButton;
+            navItem.leftBarButtonItem = self.editButtonItem;
+            navItem.title = @"Homepwner";
         }
     }
     
@@ -66,9 +74,6 @@
            forCellReuseIdentifier:@"UITableViewCell"];
     
     [self refreshDictionary];
-    
-    UIView* header = self.headerView;
-    [self.tableView setTableHeaderView:header];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,14 +126,6 @@
 {
     NSInteger numOfSections = [self numberOfSectionsInTableView:tableView];
     return section == numOfSections - 1 ? @"" : (section == numOfSections - 2 ? @"over 50$" : @"under 50$");
-}
-
-- (UIView*) headerView {
-    if (!_headerView) {
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    
-    return _headerView;
 }
 
 - (IBAction)addNewItem:(id)sender

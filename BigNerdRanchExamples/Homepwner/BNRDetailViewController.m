@@ -8,6 +8,7 @@
 
 #import "BNRDetailViewController.h"
 #import "BNRItem.h"
+#import "DatePickerController.h"
 
 @interface BNRDetailViewController ()
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField* serialField;
 @property (weak, nonatomic) IBOutlet UITextField* valueField;
 @property (weak, nonatomic) IBOutlet UILabel* dateLabel;
+@property (strong, nonatomic) DatePickerController* datePicker;
 
 @end
 
@@ -29,9 +31,30 @@
     if (self)
     {
         _item = item;
+        self.navigationItem.title = _item.itemName;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        
+        [self.view addGestureRecognizer:tap];
     }
     
     return self;
+}
+
+- (void) updateDateCreated
+{
+    static NSDateFormatter *dateFormatter = nil;
+    if (!dateFormatter)
+    {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+        dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    }
+    
+    // Use filtered NSDate object to set dateLabel contents
+    self.dateLabel.text = [dateFormatter stringFromDate: _item.dateCreated];
 }
 
 - (void)viewDidLoad {
@@ -42,17 +65,7 @@
         [_nameField setText: _item.itemName];
         [_serialField setText: _item.serialNumber];
         [_valueField setText: [NSString stringWithFormat:@"%d", _item.valueInDollars]];
-        
-        static NSDateFormatter *dateFormatter = nil;
-        if (!dateFormatter)
-        {
-            dateFormatter = [[NSDateFormatter alloc] init];
-            dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-            dateFormatter.timeStyle = NSDateFormatterNoStyle;
-        }
-        
-        // Use filtered NSDate object to set dateLabel contents
-        self.dateLabel.text = [dateFormatter stringFromDate: _item.dateCreated];
+        [self updateDateCreated];
     }
 }
 
@@ -69,6 +82,37 @@
     _item.serialNumber = _serialField.text;
     _item.valueInDollars = [_valueField.text intValue];
     
+}
+
+-(void) dismissKeyboard
+{
+    void (^resignFirstResponderBlock)(UIControl* view) = ^(UIControl* view)
+    {
+        if ([view isFirstResponder])
+        {
+            [view resignFirstResponder];
+        }
+    };
+    
+    resignFirstResponderBlock(self.valueField);
+    resignFirstResponderBlock(self.serialField);
+    resignFirstResponderBlock(self.nameField);
+}
+
+- (IBAction) changeCreateDate:(id)sender
+{
+    self.datePicker = [[DatePickerController alloc] initWithDate: _item.dateCreated];
+    [self.navigationController pushViewController:self.datePicker animated: YES];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    if (self.datePicker)
+    {
+        [self.item setDateCreated: self.datePicker.selectedDate];
+        [self updateDateCreated];
+        self.datePicker = nil;
+    }
 }
 
 /*
