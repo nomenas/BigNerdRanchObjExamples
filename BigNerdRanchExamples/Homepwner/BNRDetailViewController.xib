@@ -7,8 +7,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BNRDetailViewController">
             <connections>
                 <outlet property="dateLabel" destination="Ypc-cK-dvH" id="FIE-BD-WQF"/>
+                <outlet property="imageView" destination="5Aq-uA-qQC" id="yqd-9D-UHb"/>
                 <outlet property="nameField" destination="jIA-y1-YR0" id="ron-sN-dMD"/>
                 <outlet property="serialField" destination="jox-6G-CbK" id="r5D-Kl-D6S"/>
+                <outlet property="toolBar" destination="yya-Eu-eJa" id="mxu-gd-y4o"/>
                 <outlet property="valueField" destination="hP6-bh-3Di" id="BCQ-VA-t3H"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -57,8 +59,26 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Aq-uA-qQC">
+                    <rect key="frame" x="82" y="327" width="172" height="99"/>
+                </imageView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yya-Eu-eJa">
+                    <rect key="frame" x="0.0" y="437" width="320" height="44"/>
+                    <items>
+                        <barButtonItem systemItem="camera" id="qBh-0O-4kN">
+                            <connections>
+                                <action selector="takePicture:" destination="-1" id="fdC-pb-Zke"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="trash" id="QCY-M3-gam">
+                            <connections>
+                                <action selector="deleteImage:" destination="-1" id="qgH-dW-sei"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cT-SW-Xct">
-                    <rect key="frame" x="123" y="317" width="90" height="30"/>
+                    <rect key="frame" x="203" y="109" width="90" height="30"/>
                     <state key="normal" title="Change Date">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

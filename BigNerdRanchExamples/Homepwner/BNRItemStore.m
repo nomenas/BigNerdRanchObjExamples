@@ -8,6 +8,7 @@
 
 #import "BNRItemStore.h"
 #import "BNRItem.h"
+#import "ImageStore.h"
 
 @interface BNRItemStore ()
 
@@ -56,7 +57,11 @@
 }
 
 -(void) removeItem:(BNRItem*) item {
-    [_privateItems removeObject:item];
+    if (item)
+    {
+        [[ImageStore sharedStore] deleteImageForKey: [item uuid]];
+        [_privateItems removeObject:item];
+    }
 }
 
 @end

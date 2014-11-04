@@ -9,8 +9,9 @@
 #import "BNRDetailViewController.h"
 #import "BNRItem.h"
 #import "DatePickerController.h"
+#import "ImageStore.h"
 
-@interface BNRDetailViewController ()
+@interface BNRDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) BNRItem* item;
 
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField* serialField;
 @property (weak, nonatomic) IBOutlet UITextField* valueField;
 @property (weak, nonatomic) IBOutlet UILabel* dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView* imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar* toolBar;
 @property (strong, nonatomic) DatePickerController* datePicker;
 
 @end
@@ -113,8 +116,56 @@
         [self updateDateCreated];
         self.datePicker = nil;
     }
+    
+    self.imageView.image = [[ImageStore sharedStore] imageForKey:[_item uuid]];
 }
 
+- (IBAction) takePicture: (id) sender
+{
+    UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+    
+    // If the device has a camera, take a picture, otherwise,
+    // just pick from photo library
+    if ([UIImagePickerController
+         isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [imagePicker setAllowsEditing:YES];
+    imagePicker.delegate = self;
+    
+    // Place image picker on the screen
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+ didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Get picked image from info dictionary
+    UIImage *image = info [UIImagePickerControllerOriginalImage];
+    
+    // Put that image onto the screen in our image view
+    self.imageView.image = image;
+    
+    [[ImageStore sharedStore] setImage: image forKey: [_item uuid]];
+    
+    // Take image picker off the screen -
+    // you must call this dismiss method
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)deleteImage:(id)sender
+{
+    [[ImageStore sharedStore] deleteImageForKey: [_item uuid]];
+    self.imageView.image = nil;
+    
+}
 /*
 #pragma mark - Navigation
 

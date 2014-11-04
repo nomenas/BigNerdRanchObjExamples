@@ -19,6 +19,7 @@
 		AA92160119D9F90000708F3C /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AA92160019D9F90000708F3C /* BNRItem.m */; };
 		AAA3FE501A059CA80097D6D6 /* DatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3FE4E1A059CA80097D6D6 /* DatePickerController.m */; };
 		AAA3FE511A059CA80097D6D6 /* DatePickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAA3FE4F1A059CA80097D6D6 /* DatePickerController.xib */; };
+		AAA3FE531A06EEA30097D6D6 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA3FE521A06EEA30097D6D6 /* ImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		AAA3FE4D1A059CA80097D6D6 /* DatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerController.h; sourceTree = "<group>"; };
 		AAA3FE4E1A059CA80097D6D6 /* DatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerController.m; sourceTree = "<group>"; };
 		AAA3FE4F1A059CA80097D6D6 /* DatePickerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerController.xib; sourceTree = "<group>"; };
+		AAA3FE521A06EEA30097D6D6 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = SOURCE_ROOT; };
+		AAA3FE551A06EFD50097D6D6 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 				AAA3FE4F1A059CA80097D6D6 /* DatePickerController.xib */,
 				AA85B49B1A02F3200037C2CD /* BNRDetailViewController.xib */,
 				AA7527EA19D9F98C009EB693 /* BNRItemStore.h */,
+				AAA3FE521A06EEA30097D6D6 /* ImageStore.m */,
+				AAA3FE551A06EFD50097D6D6 /* ImageStore.h */,
 				AA7527EB19D9F98C009EB693 /* BNRItemStore.m */,
 				AA9215FF19D9F90000708F3C /* BNRItem.h */,
 				AA92160019D9F90000708F3C /* BNRItem.m */,
@@ -250,6 +255,7 @@
 				AA92160119D9F90000708F3C /* BNRItem.m in Sources */,
 				AA9215DF19D8AF8000708F3C /* AppDelegate.m in Sources */,
 				AA9215DC19D8AF8000708F3C /* main.m in Sources */,
+				AAA3FE531A06EEA30097D6D6 /* ImageStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

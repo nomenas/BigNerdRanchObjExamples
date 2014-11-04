@@ -14,6 +14,7 @@
     NSString *_serialNumber;
     int _valueInDollars;
     NSDate *_dateCreated;
+    NSString *_itemKey;
 }
 
 + (instancetype)randomItem;
@@ -25,6 +26,8 @@
 
 - (instancetype)initWithItemName:(NSString *)name;
 
+- (NSString*) uuid;
+
 - (void)setItemName:(NSString *)str;
 - (NSString *)itemName;
 
@@ -35,5 +38,6 @@
 - (int)valueInDollars;
 
 - (NSDate *)dateCreated;
+- (void) setDateCreated: (NSDate*) date;
 
 @end
